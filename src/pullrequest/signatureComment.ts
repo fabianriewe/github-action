@@ -54,7 +54,7 @@ export default async function signatureWithPRComment(committerMap: CommitterMap,
     try {
         core.info("Storing to Arweave...")
         if (getStoreOnArweave() && commentedCommitterMap.newSigned) {
-            //await storeOnArweave(commentedCommitterMap.newSigned)
+            await storeOnArweave(commentedCommitterMap.newSigned)
         }
     } catch (e) {
         core.error(e)
