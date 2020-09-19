@@ -16,11 +16,11 @@ const arweave = Arweave.init(
 export default async function storeOnArweave(newSignedCommitters: CommittersDetails[]) {
     core.info("Inside storeOnArweave")
     const key: any = core.getInput('arweave-keyfile') //TODO change this top shared
-    /*
-    let tx_ids: string[] = [];
+
 
     for (const newSignedCommitter of newSignedCommitters) {
         core.info(JSON.stringify(newSignedCommitter))
+        /*
         let transaction = await arweave.createTransaction({
             data: newSignedCommitter.body,
         }, key);
@@ -37,7 +37,6 @@ export default async function storeOnArweave(newSignedCommitters: CommittersDeta
         const response = await arweave.transactions.post(transaction);
 
         core.info("Transaction ID: " + transaction.id)
-        tx_ids.push(transaction.id)
+        */
     }
-    */
 }
