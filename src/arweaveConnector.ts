@@ -22,9 +22,9 @@ export default async function storeOnArweave(newSignedCommitters: CommittersDeta
         core.info(JSON.stringify(newSignedCommitter))
 
         let transaction = await arweave.createTransaction({
-            data: newSignedCommitter.body,
+            data: newSignedCommitter.name,
         }, key);
-        /*
+
         transaction.addTag('App-Name', 'CLA-Assistant');
         transaction.addTag('Name', newSignedCommitter.name);
         transaction.addTag('ID', newSignedCommitter.id.toString());
@@ -37,6 +37,5 @@ export default async function storeOnArweave(newSignedCommitters: CommittersDeta
         const response = await arweave.transactions.post(transaction);
 
         core.info("Transaction ID: " + transaction.id)
-        */
     }
 }
