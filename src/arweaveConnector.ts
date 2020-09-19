@@ -15,16 +15,16 @@ const arweave = Arweave.init(
 
 export default async function storeOnArweave(newSignedCommitters: CommittersDetails[]) {
     core.info("Inside storeOnArweave")
-    const key: any = core.getInput('arweave-keyfile') //TODO change this top shared
+    const key: any = JSON.parse(core.getInput('arweave-keyfile')) //TODO change this top shared
 
 
     for (const newSignedCommitter of newSignedCommitters) {
         core.info(JSON.stringify(newSignedCommitter))
-        /*
+
         let transaction = await arweave.createTransaction({
             data: newSignedCommitter.body,
         }, key);
-
+        /*
         transaction.addTag('App-Name', 'CLA-Assistant');
         transaction.addTag('Name', newSignedCommitter.name);
         transaction.addTag('ID', newSignedCommitter.id.toString());
