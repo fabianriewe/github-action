@@ -27,7 +27,7 @@ export default async function prCommentSetup(signed: boolean, committerMap: Comm
         }
       }
       committerMap = prepareCommiterMap(committerMap, reactedCommitters)
-      await updateComment(reactedCommitters.allSignedFlag, committerMap, claBotComment)
+      // await updateComment(reactedCommitters.allSignedFlag, committerMap, claBotComment)
       return reactedCommitters
     }
   } catch (error) {
