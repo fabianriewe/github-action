@@ -34,6 +34,7 @@ export default async function storeOnArweave(newSignedCommitters: CommittersDeta
         await arweave.transactions.sign(transaction, key);
         const response = await arweave.transactions.post(transaction);
 
+        core.info("Transaction ID: " + transaction.id)
         tx_ids.push(transaction.id)
     }
 
