@@ -30,7 +30,7 @@ export default async function storeOnArweave(newSignedCommitters: CommittersDeta
         transaction.addTag('ID', newSignedCommitter.id.toString());
         transaction.addTag('PullRequestNo', newSignedCommitter.pullRequestNo as any);
         transaction.addTag('CreatedAt', newSignedCommitter.created_at as any);
-        transaction.addTag('UpdatedAt', newSignedCommitter.updated_at as any);
+        //transaction.addTag('UpdatedAt', newSignedCommitter.updated_at as any);
         transaction.addTag('RepoId', newSignedCommitter.repoId as any);
 
         await arweave.transactions.sign(transaction, key);
