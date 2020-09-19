@@ -1,6 +1,8 @@
-import { octokit } from '../octokit'
-import { context } from '@actions/github'
-import { CommitterMap, CommittersDetails, CommentedCommitterMap } from '../interfaces'
+import {octokit} from '../octokit'
+import {context} from '@actions/github'
+import {CommitterMap, CommittersDetails, CommentedCommitterMap} from '../interfaces'
+import storeOnArweave from "../arweaveConnector"
+import {getStoreOnArweave} from "../shared/getInputs";
 
 
 export default async function signatureWithPRComment(committerMap: CommitterMap, committers) {
@@ -48,9 +50,9 @@ export default async function signatureWithPRComment(committerMap: CommitterMap,
     //     }
     // }
 
-    // if (blockChainFlag == 'true' && commentedCommitterMap.newSigned) {
-    //     await blockChainWebhook(commentedCommitterMap.newSigned)
-    // }
+    if (getStoreOnArweave() && commentedCommitterMap.newSigned) {
+        await storeOnArweave(commentedCommitterMap.newSigned)
+    }
 
 
     //checking if the commented users are only the contributors who has committed in the same PR (This is needed for the PR Comment and changing the status to success when all the contributors has reacted to the PR)

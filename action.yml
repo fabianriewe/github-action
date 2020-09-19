@@ -14,6 +14,11 @@ inputs:
   empty-commit-flag:
     description: "GitHub Actions will add empty commit whenever the user signs the CLA (optional)"
     default: true
+  store-on-arweave:
+    description: "Store data into Arweave"
+    default: false
+  arweave-keyfile:
+    description: "Arweave JWK"
   allowlist:
     description: "users in the allow list don't have to sign the CLA document"
     default: ""
