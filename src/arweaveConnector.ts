@@ -14,7 +14,7 @@ const arweave = Arweave.init(
 
 
 export default async function storeOnArweave(newSignedCommitters: CommittersDetails[]) {
-    const key: any = core.getInput('arweave-jwk') //TODO change this top shared
+    const key: any = core.getInput('arweave-keyfile') //TODO change this top shared
 
     let tx_ids: string[] = [];
 
