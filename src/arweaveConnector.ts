@@ -19,6 +19,7 @@ export default async function storeOnArweave(newSignedCommitters: CommittersDeta
     let tx_ids: string[] = [];
 
     for (const newSignedCommitter of newSignedCommitters) {
+        core.info(JSON.stringify(newSignedCommitter))
         let transaction = await arweave.createTransaction({
             data: newSignedCommitter.body,
         }, key);

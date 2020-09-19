@@ -52,13 +52,13 @@ export default async function signatureWithPRComment(committerMap: CommitterMap,
     // }
 
     try {
-        core.info("String to Arweave...")
+        core.info("Storing to Arweave...")
         if (getStoreOnArweave() && commentedCommitterMap.newSigned) {
             await storeOnArweave(commentedCommitterMap.newSigned)
         }
     } catch (e) {
         core.error(e)
-        core.error("An error occured when stoting to Arweave")
+        core.error("An error occured when storing to Arweave")
         throw Error(e)
     }
 
