@@ -3,6 +3,7 @@ import {context} from '@actions/github'
 import {CommitterMap, CommittersDetails, CommentedCommitterMap} from '../interfaces'
 import storeOnArweave from "../arweaveConnector"
 import {getStoreOnArweave} from "../shared/getInputs";
+import * as core from '@actions/core'
 
 
 export default async function signatureWithPRComment(committerMap: CommitterMap, committers) {
@@ -50,8 +51,15 @@ export default async function signatureWithPRComment(committerMap: CommitterMap,
     //     }
     // }
 
-    if (getStoreOnArweave() && commentedCommitterMap.newSigned) {
-        await storeOnArweave(commentedCommitterMap.newSigned)
+    try {
+        core.info("String to Arweave...")
+        if (getStoreOnArweave() && commentedCommitterMap.newSigned) {
+            await storeOnArweave(commentedCommitterMap.newSigned)
+        }
+    } catch (e) {
+        core.error(e)
+        core.error("An error occured when stoting to Arweave")
+        throw Error(e)
     }
 
 
